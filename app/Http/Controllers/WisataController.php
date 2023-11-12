@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Galeri;
 use App\Models\Kuliner;
 use App\Models\Penginapan;
 use App\Models\Wisata;
@@ -20,6 +21,7 @@ class WisataController extends Controller
             "kuliner" => Kuliner::count(),
             "penginapan" => Penginapan::count(),
             "berita" => Berita::count(),
+            "galeri" => Galeri::count()
         ]);
     }
 

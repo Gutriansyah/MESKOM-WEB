@@ -18,4 +18,9 @@ class Wisata extends Model
         'gambar_2',
         'gambar_3',
     ];
+
+    public function galeris()
+    {
+        return $this->hasMany(Galeri::class);
+    }
 }

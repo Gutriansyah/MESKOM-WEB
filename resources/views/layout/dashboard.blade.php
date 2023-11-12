@@ -73,6 +73,9 @@
                     <li>
                         <a href="{{ route('dashboard-berita') }}"><i class="fa fa-quote-right fa-fw"></i> Berita</a>
                     </li>
+                    <li>
+                        <a href="{{ route('dashboard-galeri') }}"><i class="fa fa-camera fa-fw"></i> Galeri</a>
+                    </li>
                 </ul>
             </div>
         </aside>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\galeriController;
 use App\Http\Controllers\KulinerController;
 use App\Http\Controllers\PenginapanController;
 use App\Http\Controllers\WisataController;
@@ -51,4 +52,11 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/berita/edit/{berita}', [BeritaController::class, "edit"])->name('edit-berita');
     Route::put('/berita/update/{berita}', [BeritaController::class, "update"])->name('update-berita');
     Route::delete('/berita/delete/{berita}', [BeritaController::class, "destroy"])->name('delete-berita');
+
+    Route::get('/galeri', [GaleriController::class, 'index'])->name('dashboard-galeri');
+    Route::get('/galeri/create', [GaleriController::class, 'create'])->name('create-galeri');
+    Route::post('/galeri/store', [GaleriController::class, 'store'])->name('store-galeri');
+    Route::get('/galeri/edit/{galeri}', [GaleriController::class, 'edit'])->name('edit-galeri');
+    Route::put('/galeri/update/{galeri}', [GaleriController::class, 'update'])->name('update-galeri');
+    Route::delete('/galeri/delete/{galeri}', [GaleriController::class, 'delete'])->name('delete-galeri');
 });
