@@ -4,6 +4,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\galeriController;
 use App\Http\Controllers\KulinerController;
 use App\Http\Controllers\PenginapanController;
+use App\Http\Controllers\PublicController;
 use App\Http\Controllers\WisataController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +19,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home', [
+//         "tittle" => "halaman home"
+//     ]);
+// });
+
+
+Route::get('/', [PublicController::class, 'index'])->name('halaman-home');
+Route::get('/wisata', [PublicController::class, 'wisata'])->name('halaman-wisata');
+Route::get('/penginapan', [PublicController::class, 'penginapan'])->name('halaman-penginapan');
+Route::get('/kuliner', [PublicController::class, 'kuliner'])->name('halaman-kuliner');
+Route::get('/berita', [PublicController::class, 'berita'])->name('halaman-berita');
+Route::get('/galeri', [PublicController::class, 'galeri'])->name('halaman-galeri');
+
 
 Route::prefix('dashboard')->group(function () {
 
