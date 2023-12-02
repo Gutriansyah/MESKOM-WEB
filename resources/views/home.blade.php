@@ -26,8 +26,6 @@
         </div>
     </div>
 
-
-
     <div class="cities-town" id="1">
         <div class="container">
             <div class="row">
