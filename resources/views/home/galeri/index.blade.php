@@ -10,12 +10,12 @@
 
 
         <div class="col-lg-6 offset-lg-3">
-            <div class="section-heading text-center">
+            <div class="section-heading text-center ">
                 <h2>Nikmati keindahan alam dan pesona desa Meskom</h2>
-                <p>Jelajahi keindahannya</p>
+                <p></p>
             </div>
         </div>
-        <div class="row" style="margin-top: -40px ">
+        <div class="row" style="margin-top: 30px ">
             @foreach ($datas as $item)
                 <div class="col-lg-3 mb-5">
                     <div class="card bg-dark text-white">
@@ -29,7 +29,8 @@
                     <div class="mt-1">
                         <h5>
                             <span>
-                                <a href="">Galeri {{ $item->nama_wisata }} </a>
+                                <a href="{{ route('detail-galeri', $item->id) }}">Galeri {{ $item->nama_wisata }}
+                                </a>
                             </span>
 
                         </h5>

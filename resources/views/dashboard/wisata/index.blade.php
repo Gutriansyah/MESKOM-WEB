@@ -27,16 +27,18 @@
                         class="btn btn-outline btn-primary btn-sm">Tambah
                         Data</button></a>
             </div>
-            <div class="col-lg-3 ">
-                <div class="input-group custom-search-form">
-                    <input type="text" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </span>
+            <form action="" method="GET">
+                <div class="col-lg-3 ">
+                    <div class="input-group custom-search-form">
+                        <input type="text" class="form-control" placeholder="Cari tempat wisata" name="search">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
         <div class="table-responsive">
             <table class="table table-hover">
@@ -50,7 +52,7 @@
                 </thead>
                 <tbody>
 
-                    @foreach ($data as $wisata)
+                    @foreach ($datas as $wisata)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $wisata->nama_wisata }}</td>
@@ -69,8 +71,9 @@
                     @endforeach
                 </tbody>
             </table>
-
         </div>
+
+
         <!-- /.table-responsive -->
     </div>
 @endsection

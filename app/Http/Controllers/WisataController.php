@@ -25,11 +25,20 @@ class WisataController extends Controller
         ]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
+
+        if ($request->search) {
+            $wisata = Wisata::where('nama_wisata', 'like', "%$request->search%")
+                ->latest()
+                ->get();
+        } else {
+            $wisata = Wisata::latest()->get();
+        }
+
         return view('dashboard.wisata.index', [
             "tittle" => "Dashboard Wisata",
-            "data" => Wisata::all()
+            "datas" => $wisata
         ]);
     }
 

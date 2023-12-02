@@ -9,11 +9,20 @@ use Illuminate\Support\Facades\Storage;
 
 class PenginapanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+
+        if ($request->search) {
+            $penginapan = Penginapan::where('nama_penginapan', 'like', "%$request->search%")
+                ->latest()
+                ->get();
+        } else {
+            $penginapan = Penginapan::latest()->get();
+        }
+
         return view('dashboard.penginapan.index', [
             "tittle" => "Dashboard Penginapan",
-            "data" => Penginapan::all()
+            "data" => $penginapan
         ]);
     }
 

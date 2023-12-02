@@ -9,11 +9,20 @@ use Illuminate\Support\Facades\Storage;
 
 class KulinerController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+
+        if ($request->search) {
+            $kuliner = Kuliner::where('nama_kuliner', 'like', "%$request->search%")
+                ->latest()
+                ->get();
+        } else {
+            $kuliner = Kuliner::latest()->get();
+        }
+
         return view('dashboard.kuliner.index', [
             "tittle" => "Dashboard Kuliner",
-            "data" => Kuliner::all()
+            "data" => $kuliner
         ]);
     }
 

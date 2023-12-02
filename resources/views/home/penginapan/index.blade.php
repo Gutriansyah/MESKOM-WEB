@@ -15,6 +15,31 @@
                     </div>
                 </div>
 
+                <div class="reservation-form">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form id="reservation-form" name="gs" method="GET" role="search" action=""
+                                    style="background-color: white; padding: 10px; margin: 10px">
+                                    <div class="row">
+                                        <div class="col-lg-9">
+                                            <fieldset>
+                                                <input type="text" name="search" class="Name"
+                                                    placeholder="Cari Tempat Penginapan">
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <fieldset>
+                                                <button type="submit" class="main-button">Search</button>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 @foreach ($datas as $item)
                     <div class="col-lg-6 col-sm-6">
                         <div class="item">
@@ -27,7 +52,6 @@
                                 </div>
                                 <div class="col-lg-6 align-self-center">
                                     <div class="content">
-                                        <span class="info">*Penawaran Terbaik</span>
                                         <h4>{{ $item->nama_penginapan }}</h4>
                                         <div class="row">
                                             <div class="col-12">
@@ -46,7 +70,7 @@
                                         <p></p>
                                         {{-- <article> {!! Str::limit($item->deskripsi, 200, '...') !!}</article> --}}
                                         <div class="main-button">
-                                            <a href="reservation.html">Make a Reservation</a>
+                                            <a href="{{ route('detail-penginapan', $item->id) }}">Detail</a>
                                         </div>
                                     </div>
                                 </div>

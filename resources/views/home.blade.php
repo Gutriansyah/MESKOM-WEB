@@ -18,7 +18,7 @@
                             Jelajahi keunikan kami, saksikan perkembangan, dan bergabunglah dalam perjalanan menuju masa
                             depan yang lebih cerah bersama-sama. Selamat menikmati pengalaman kami!</p>
                         <div class="main-button">
-                            <a href="reservation.html">Discover More</a>
+                            <a href="#1">Discover More</a>
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,9 @@
         </div>
     </div>
 
-    <div class="cities-town">
+
+
+    <div class="cities-town" id="1">
         <div class="container">
             <div class="row">
                 <div class="slider-content">
@@ -82,7 +84,7 @@
         </div>
     </div>
 
-    <div class="weekly-offers">
+    <div class="weekly-offers" style="margin-top: 40px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
@@ -93,7 +95,7 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid" style="margin-top: 30px">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="owl-weekly-offers owl-carousel">

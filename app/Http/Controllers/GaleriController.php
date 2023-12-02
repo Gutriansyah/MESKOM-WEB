@@ -11,11 +11,22 @@ class GaleriController extends Controller
 {
     //
 
-    public function index()
+    public function index(Request $request)
     {
+
+        if ($request->search) {
+            $searchQuery = $request->input('search');
+
+            $galeri = Galeri::whereHas('wisata', function ($query) use ($searchQuery) {
+                $query->where('nama_wisata', 'like', "%$searchQuery%");
+            })->get();
+        } else {
+            $galeri = Galeri::latest()->get();
+        }
+
         return view('dashboard.galeri.index', [
             "tittle" => "Dashboard Galeri",
-            "data" => Galeri::all()
+            "data" => $galeri
         ]);
     }
 

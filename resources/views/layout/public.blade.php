@@ -49,7 +49,11 @@
                                 <a href="{{ route('halaman-galeri') }}">Galeri</a>
                             </li>
                             <li>
-                                <a href="{{ route('dashboard') }}">dashboard</a>
+                                @if (Auth::user())
+                                    <a href="{{ route('dashboard') }}">Dashboard</a>
+                                @else
+                                    <a href="{{ route('halaman-login') }}">Login</a>
+                                @endif
                             </li>
                         </ul>
                         <a class='menu-trigger'>

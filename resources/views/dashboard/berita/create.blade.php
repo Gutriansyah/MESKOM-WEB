@@ -39,9 +39,21 @@
                         <label for="topik">Topik</label>
                         <select class="form-control" id="topik" name="topik" aria-placeholder="Pilih Kategori">
                             <option value="berita">Pilih Topik</option>
-                            <option value="olahraga">olahraga</option>
-                            <option value="otomotif">otomotif</option>
-                            <option value="budaya">budaya</option>
+                            <option value="Olahraga">Olahraga</option>
+                            <option value="Politik">Politik</option>
+                            <option value="Ekonomi">Ekonomi</option>
+                            <option value="Hiburan">Hiburan</option>
+                            <option value="Teknologi">Teknologi</option>
+                            <option value="Kesehatan">Kesehatan</option>
+                            <option value="Lingkungan">Lingkungan</option>
+                            <option value="Internasional">Internasional</option>
+                            <option value="Lifestyle">LifeStyle</option>
+                            <option value="Sain">Sains</option>
+                            <option value="Pendidikan">Pendidikan</option>
+                            <option value="Kriminalitas">Kriminal</option>
+                            <option value="Kuliner">Kuliner</option>
+                            <option value="Otomotif">Otomotif</option>
+                            <option value="Budaya">budaya</option>
                         </select>
                         <p class="help-block">*Topik berita atau artikel</p>
                         @error('Topik')

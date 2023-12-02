@@ -3,6 +3,7 @@
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\galeriController;
 use App\Http\Controllers\KulinerController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PenginapanController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\WisataController;
@@ -19,23 +20,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home', [
-//         "tittle" => "halaman home"
-//     ]);
+// Route::get('/login', function () {
+//     return view('home.login', []);
 // });
+
+Route::middleware('guest')->group(function () {
+    Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
+    Route::get('/login', [LoginController::class, 'login'])->name('halaman-login');
+});
+
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
 
 Route::get('/', [PublicController::class, 'index'])->name('halaman-home');
 Route::get('/wisata', [PublicController::class, 'wisata'])->name('halaman-wisata');
+Route::get('/wisata/{wisata}', [PublicController::class, 'DetailWisata'])->name('detail-wisata');
 Route::get('/penginapan', [PublicController::class, 'penginapan'])->name('halaman-penginapan');
+Route::get('/penginapan/{penginapan}', [PublicController::class, 'DetailPenginapan'])->name('detail-penginapan');
 Route::get('/kuliner', [PublicController::class, 'kuliner'])->name('halaman-kuliner');
+Route::get('/kuliner/{kuliner}', [PublicController::class, 'DetailKuliner'])->name('detail-kuliner');
 Route::get('/berita', [PublicController::class, 'berita'])->name('halaman-berita');
+Route::get('/berita/{berita}', [PublicController::class, 'DetailBerita'])->name('detail-berita');
 Route::get('/galeri', [PublicController::class, 'galeri'])->name('halaman-galeri');
+Route::get('/galeri/{wisata}', [PublicController::class, 'DetailGaleri'])->name('detail-galeri');
 
 
-Route::prefix('dashboard')->group(function () {
-
+Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('/', [WisataController::class, "dashboard"])->name('dashboard');
     Route::get('/wisata', [WisataController::class, "index"])->name('dashboard-wisata');
     Route::get('/wisata/create', [WisataController::class, "create"])->name('create-wisata');
